@@ -25,7 +25,9 @@ public class NGramAnnotator extends JCasAnnotator_ImplBase {
    */
   @Override
   public void process(JCas aJCas){
-    //considering n = 1,2,3 unigram, bigram, trigram
+    /**
+     * considering n = 1,2,3 unigram, bigram, trigram
+     */
     for (int n = 1; n < 4; ++n) {
         try {
           Iterator<Annotation> sentenceIter = aJCas.getAnnotationIndex(Sentence.type).iterator();

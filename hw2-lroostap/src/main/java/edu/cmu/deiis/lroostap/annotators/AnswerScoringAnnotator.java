@@ -30,7 +30,9 @@ public class AnswerScoringAnnotator extends JCasAnnotator_ImplBase {
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
 
     FSIterator<Annotation> nGramIter = aJCas.getAnnotationIndex(NGram.type).iterator();
-    //creating a HashMap to link a question/answer to a list of NGrams 
+    /**
+     * creating a HashMap to link a question/answer to a list of NGrams 
+     */
     HashMap<Annotation, ArrayList<NGram>> nGramHashMap = new HashMap<Annotation, ArrayList<NGram>>();
     Annotation question = null;
 
@@ -51,7 +53,9 @@ public class AnswerScoringAnnotator extends JCasAnnotator_ImplBase {
     Set<Annotation> annotationKeyList = nGramHashMap.keySet();
     annotationKeyList.remove(question);
     
-    //A simple NGram matching technique between a question and an answer
+    /**
+     * A simple NGram matching technique between a question and an answer
+     */
     ArrayList<AnswerScore> answerScoreList = new ArrayList<AnswerScore>();
     for (Annotation answer : annotationKeyList) {
       float numberOfMatches = (float) 0;
@@ -66,7 +70,9 @@ public class AnswerScoringAnnotator extends JCasAnnotator_ImplBase {
         }
       }
       
-      //Creating an AnswerScore and set the variables
+      /**
+       * Creating an AnswerScore and set the variables
+       */
       AnswerScore ansScore = new AnswerScore(aJCas);
       ansScore.setCasProcessorId(this.getClass().getName());
       ansScore.setAnswer((Answer) answer);
@@ -78,7 +84,9 @@ public class AnswerScoringAnnotator extends JCasAnnotator_ImplBase {
       answerScoreList.add(ansScore);
     }
       
-    //printing the result
+    /**
+     * printing the result
+     */
     try {
       printResult(question, answerScoreList);
     } catch (Exception e) {
@@ -97,7 +105,9 @@ public class AnswerScoringAnnotator extends JCasAnnotator_ImplBase {
    */
   private void printResult(Annotation question, ArrayList<AnswerScore> scoreList) throws Exception {   
   
-  //Sorting the answerScoreList according to the score
+  /**
+   * Sorting the answerScoreList according to the score
+   */
     Comparator<AnswerScore> cmp = new Comparator<AnswerScore>() {
       public int compare(AnswerScore a, AnswerScore b) {
         return -Double.compare(a.getScore(), b.getScore());
@@ -105,11 +115,15 @@ public class AnswerScoringAnnotator extends JCasAnnotator_ImplBase {
     };
     Collections.sort(scoreList, cmp);
    
-    //printing the question
+    /**
+     * printing the question
+     */
     System.out.print("Question: " + question.getCoveredText() + "\n");
 
     
-    //printing the answers with their scores
+    /**
+     * printing the answers with their scores
+     */
     for (AnswerScore score : scoreList) {
       String isCorrect = "";
       if (score.getAnswer().getIsCorrect()){
@@ -121,7 +135,9 @@ public class AnswerScoringAnnotator extends JCasAnnotator_ImplBase {
     }
     
     
-    //calculating the precision at n where n is the number of correct answers
+    /**
+     * calculating the precision at n where n is the number of correct answers
+     */
     int correctAnswers = 0;
     for (int i = 0; i < scoreList.size(); ++i) {
       if (scoreList.get(i).getAnswer().getIsCorrect())

@@ -18,9 +18,13 @@ import edu.cmu.deiis.types.Question;
  */
 public class ElementAnnotator extends JCasAnnotator_ImplBase {
 
-  //question pattern
+  /**
+   * question pattern
+   */
   private Pattern questionPattern = Pattern.compile("Q .+\\?");
-  //answer pattern
+  /**
+   * answer pattern
+   */
   private Pattern answerPattern = Pattern.compile("A (0|1) .+\\.");
 
   /**
@@ -32,7 +36,9 @@ public class ElementAnnotator extends JCasAnnotator_ImplBase {
     String thisProcessorClassName = this.getClass().getName();
     int pos = 0;
     
-    //detecting question
+    /**
+     * detecting question
+     */
     Matcher matcher = questionPattern.matcher(text);
     while (matcher.find(pos)) {
       Question question = new Question(aJCas);
@@ -44,7 +50,9 @@ public class ElementAnnotator extends JCasAnnotator_ImplBase {
       question.setCasProcessorId(thisProcessorClassName);
     }
 
-    //detecting answer
+    /**
+     * detecting answer
+     */
     matcher = answerPattern.matcher(text);
     while (matcher.find(pos)) {
       Answer answer = new Answer(aJCas);

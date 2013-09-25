@@ -52,7 +52,7 @@ public class TokenAnnotator extends JCasAnnotator_ImplBase {
   /**
    * Calls the tokenizer and creates an array of Tokens for each question or answer 
    * @param aJCas
-   * @param annotationClass
+   * @param annotationClass a Sentence will be passed
    * @return an FSArray of Tokens
    * @throws Exception
    */
