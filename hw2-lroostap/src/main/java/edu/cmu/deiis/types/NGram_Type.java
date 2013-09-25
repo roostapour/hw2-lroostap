@@ -13,7 +13,7 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 
 /** 
- * Updated by JCasGen Wed Sep 11 13:44:28 EDT 2013
+ * Updated by JCasGen Wed Sep 25 00:56:33 EDT 2013
  * @generated */
 public class NGram_Type extends Annotation_Type {
   /** @generated */
@@ -66,7 +66,7 @@ public class NGram_Type extends Annotation_Type {
     if (lowLevelTypeChecks)
       return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_elements), i, true);
     jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_elements), i);
-	return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_elements), i);
+  return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_elements), i);
   }
    
   /** @generated */ 
@@ -97,6 +97,42 @@ public class NGram_Type extends Annotation_Type {
     ll_cas.ll_setStringValue(addr, casFeatCode_elementType, v);}
     
   
+ 
+  /** @generated */
+  final Feature casFeat_N;
+  /** @generated */
+  final int     casFeatCode_N;
+  /** @generated */ 
+  public int getN(int addr) {
+        if (featOkTst && casFeat_N == null)
+      jcas.throwFeatMissing("N", "edu.cmu.deiis.types.NGram");
+    return ll_cas.ll_getIntValue(addr, casFeatCode_N);
+  }
+  /** @generated */    
+  public void setN(int addr, int v) {
+        if (featOkTst && casFeat_N == null)
+      jcas.throwFeatMissing("N", "edu.cmu.deiis.types.NGram");
+    ll_cas.ll_setIntValue(addr, casFeatCode_N, v);}
+    
+  
+ 
+  /** @generated */
+  final Feature casFeat_Owner;
+  /** @generated */
+  final int     casFeatCode_Owner;
+  /** @generated */ 
+  public int getOwner(int addr) {
+        if (featOkTst && casFeat_Owner == null)
+      jcas.throwFeatMissing("Owner", "edu.cmu.deiis.types.NGram");
+    return ll_cas.ll_getRefValue(addr, casFeatCode_Owner);
+  }
+  /** @generated */    
+  public void setOwner(int addr, int v) {
+        if (featOkTst && casFeat_Owner == null)
+      jcas.throwFeatMissing("Owner", "edu.cmu.deiis.types.NGram");
+    ll_cas.ll_setRefValue(addr, casFeatCode_Owner, v);}
+    
+  
 
 
 
@@ -113,6 +149,14 @@ public class NGram_Type extends Annotation_Type {
  
     casFeat_elementType = jcas.getRequiredFeatureDE(casType, "elementType", "uima.cas.String", featOkTst);
     casFeatCode_elementType  = (null == casFeat_elementType) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_elementType).getCode();
+
+ 
+    casFeat_N = jcas.getRequiredFeatureDE(casType, "N", "uima.cas.Integer", featOkTst);
+    casFeatCode_N  = (null == casFeat_N) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_N).getCode();
+
+ 
+    casFeat_Owner = jcas.getRequiredFeatureDE(casType, "Owner", "edu.cmu.deiis.types.Annotation", featOkTst);
+    casFeatCode_Owner  = (null == casFeat_Owner) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_Owner).getCode();
 
   }
 }

@@ -1,25 +1,56 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <primitive>true</primitive>  <annotatorImplementationName></annotatorImplementationName>
+  <primitive>false</primitive>  
+  <delegateAnalysisEngineSpecifiers>
+    <delegateAnalysisEngine key="ElementAnnotator">
+      <import name="descriptors.ElementAnnotator"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="TokenAnnotator">
+      <import name="descriptors.TokenAnnotator"/>
+    </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="NGramAnnotator">
+      <import name="descriptors.NGramAnnotator"/>
+    </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="AnswerScoringAnnotator">
+      <import name="descriptors.AnswerScoringAnnotator"/>
+    </delegateAnalysisEngine>
+  </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
     <name>hw2-lroostap-aae</name>
-    <description></description>
+    <description/>
     <version>1.0</version>
-    <vendor></vendor>
-    <configurationParameters></configurationParameters>
-    <configurationParameterSettings></configurationParameterSettings>
-    <typeSystemDescription></typeSystemDescription>
-    <typePriorities></typePriorities>
-    <fsIndexCollection></fsIndexCollection>
+    <vendor/>
+    <configurationParameters searchStrategy="language_fallback"/>
+    <configurationParameterSettings/>
+    <flowConstraints>
+      <fixedFlow>
+        <node>ElementAnnotator</node>
+        <node>TokenAnnotator</node>
+      <node>NGramAnnotator</node>
+      <node>AnswerScoringAnnotator</node>
+      </fixedFlow>
+    </flowConstraints>
+    <fsIndexCollection/>
     <capabilities>
       <capability>
-        <inputs></inputs>
-        <outputs></outputs>
-        <languagesSupported></languagesSupported>
+        <inputs/>
+        <outputs>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Question</type>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Answer</type>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Token</type>
+        <type allAnnotatorFeatures="true">edu.cmu.deiis.types.NGram</type>
+        <type allAnnotatorFeatures="true">edu.cmu.deiis.types.AnswerScore</type>
+        </outputs>
+        <languagesSupported/>
       </capability>
     </capabilities>
+  <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
   </analysisEngineMetaData>
-  <externalResourceDependencies></externalResourceDependencies>
-  <resourceManagerConfiguration></resourceManagerConfiguration>
+  <resourceManagerConfiguration/>
 </analysisEngineDescription>

@@ -11,8 +11,8 @@ import org.apache.uima.jcas.cas.FSArray;
 
 
 /** 
- * Updated by JCasGen Wed Sep 11 13:44:28 EDT 2013
- * XML source: /home/diwang/ur-workspace/deiis-f13-homework/src/main/resources/desc/deiis_types.xml
+ * Updated by JCasGen Wed Sep 25 00:56:33 EDT 2013
+ * XML source: /home/hannah/git/hw2-lroostap/hw2-lroostap/src/main/resources/descriptors/deiis_types.xml
  * @generated */
 public class NGram extends Annotation {
   /** @generated
@@ -112,6 +112,42 @@ public class NGram extends Annotation {
     if (NGram_Type.featOkTst && ((NGram_Type)jcasType).casFeat_elementType == null)
       jcasType.jcas.throwFeatMissing("elementType", "edu.cmu.deiis.types.NGram");
     jcasType.ll_cas.ll_setStringValue(addr, ((NGram_Type)jcasType).casFeatCode_elementType, v);}    
+   
+    
+  //*--------------*
+  //* Feature: N
+
+  /** getter for N - gets This is the size N in Ngram. For example 1 for unigram, 2 for bigram.
+   * @generated */
+  public int getN() {
+    if (NGram_Type.featOkTst && ((NGram_Type)jcasType).casFeat_N == null)
+      jcasType.jcas.throwFeatMissing("N", "edu.cmu.deiis.types.NGram");
+    return jcasType.ll_cas.ll_getIntValue(addr, ((NGram_Type)jcasType).casFeatCode_N);}
+    
+  /** setter for N - sets This is the size N in Ngram. For example 1 for unigram, 2 for bigram. 
+   * @generated */
+  public void setN(int v) {
+    if (NGram_Type.featOkTst && ((NGram_Type)jcasType).casFeat_N == null)
+      jcasType.jcas.throwFeatMissing("N", "edu.cmu.deiis.types.NGram");
+    jcasType.ll_cas.ll_setIntValue(addr, ((NGram_Type)jcasType).casFeatCode_N, v);}    
+   
+    
+  //*--------------*
+  //* Feature: Owner
+
+  /** getter for Owner - gets It shows that each ngram is related to which question or answer.
+   * @generated */
+  public Annotation getOwner() {
+    if (NGram_Type.featOkTst && ((NGram_Type)jcasType).casFeat_Owner == null)
+      jcasType.jcas.throwFeatMissing("Owner", "edu.cmu.deiis.types.NGram");
+    return (Annotation)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((NGram_Type)jcasType).casFeatCode_Owner)));}
+    
+  /** setter for Owner - sets It shows that each ngram is related to which question or answer. 
+   * @generated */
+  public void setOwner(Annotation v) {
+    if (NGram_Type.featOkTst && ((NGram_Type)jcasType).casFeat_Owner == null)
+      jcasType.jcas.throwFeatMissing("Owner", "edu.cmu.deiis.types.NGram");
+    jcasType.ll_cas.ll_setRefValue(addr, ((NGram_Type)jcasType).casFeatCode_Owner, jcasType.ll_cas.ll_getFSRef(v));}    
   }
 
     

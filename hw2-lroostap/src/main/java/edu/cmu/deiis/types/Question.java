@@ -1,6 +1,6 @@
 
 
-/* First created by JCasGen Wed Sep 11 13:44:28 EDT 2013 */
+/* First created by JCasGen Tue Sep 24 12:32:50 EDT 2013 */
 package edu.cmu.deiis.types;
 
 import org.apache.uima.jcas.JCas; 
@@ -10,10 +10,10 @@ import org.apache.uima.jcas.cas.TOP_Type;
 
 
 /** 
- * Updated by JCasGen Wed Sep 11 13:44:28 EDT 2013
- * XML source: /home/diwang/ur-workspace/deiis-f13-homework/src/main/resources/desc/deiis_types.xml
+ * Updated by JCasGen Wed Sep 25 00:56:33 EDT 2013
+ * XML source: /home/hannah/git/hw2-lroostap/hw2-lroostap/src/main/resources/descriptors/deiis_types.xml
  * @generated */
-public class Question extends Annotation {
+public class Question extends Sentence {
   /** @generated
    * @ordered 
    */
